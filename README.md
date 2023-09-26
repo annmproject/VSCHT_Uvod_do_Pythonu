@@ -1,2 +1,27 @@
-# VSCHT_Uvod_do_Pythonu
-VŠCHT M445023 Úvod do Pythonu
+# VŠCHT M445023 Úvod do Pythonu
+
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
+- Jen bych chtěl říct, že plagiátorství je hřích!
