@@ -2,10 +2,15 @@
 """
     
     Author: Adam Novak
-    Task: Find LCM in range <1;30>.
-    Note: The simplest way to calculate the least common multiple of the numbers 
-    n1,...,nx is to decompose these numbers into primes and from the decompositions 
-    to select the prime factors in the highest powers. By multiplying them we obtain the LCM.
+    
+    Task: Číslo 2520 je nejmenší číslo které je dělitelné bezezbytku všemi číslo od 1 do 10.
+          Nalezněte nejmenší kladné číslo, které je dělitelné bezezbytku všemi čísly od 1 do 30.
+    
+    Note: The simplest way to calculate the least common multiple (LCM/NSD) of the numbers 
+          n1,...,nx is to decompose these numbers into primes and from the decompositions 
+          to select the prime factors in the highest powers. By multiplying them we obtain the LCM.
+
+    Result: 2329089562800
 
 """
 

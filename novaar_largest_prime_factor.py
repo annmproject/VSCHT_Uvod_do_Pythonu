@@ -1,8 +1,13 @@
 """
     
     Author: Adam Novak
-    Task: Find the largest prime factor of the number 70616204741131.
+    
+    Task: Prvočíselní dělitelé čísla 13195 jsou 5, 7, 13 a 29.
+          Nalezněte největší prvočíselný dělitel čísla 70616204741131.
+    
     Note: The largest prime factor of a number must be less than or equal to its square root.
+
+    Result: 103608299
 
 """
 
