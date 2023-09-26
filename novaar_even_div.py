@@ -3,7 +3,7 @@
     
     Author: Adam Novak
     Task: Find LCM in range <1;30>.
-    note: The simplest way to calculate the least common multiple of the numbers 
+    Note: The simplest way to calculate the least common multiple of the numbers 
     n1,...,nx is to decompose these numbers into primes and from the decompositions 
     to select the prime factors in the highest powers. By multiplying them we obtain the LCM.
 
