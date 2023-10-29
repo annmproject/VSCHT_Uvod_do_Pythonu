@@ -21,7 +21,7 @@ if __name__ == "__main__":
             hero_name = input("What is your name hero? ")
 
             # check name
-            if not hero_name.isalpha():
+            if not (hero_name.isalpha() and hero_name.isascii()):
                 print("Invalid name")
                 continue
 
@@ -78,8 +78,10 @@ if __name__ == "__main__":
                     continue
 
                 if action == 'Y':
-                    # TODO
-                    print("saved")
+                    filename = hero_name + '_' + datetime.now().strftime('%Y%m%d%H%M%S') + '.dng'
+                    with open(filename, "wb") as file:
+                        pickle.dump((hero_name, dungeon), file)
+                    print("saved to ", filename)
 
                 print("Bye!")
                 exit(0)
