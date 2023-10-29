@@ -49,6 +49,7 @@ if __name__ == "__main__":
                     print("Expected .dng file!")
                     continue
 
+                # load saved game
                 try:
                     with open(path, "rb") as file:
                         hero_name, dungeon = pickle.load(file)
@@ -57,31 +58,37 @@ if __name__ == "__main__":
                     print("Damaged file!")
                     continue
 
+            # break infinite cycle
             break
 
+    # play game
     while True:
 
-        # multiplatform
+        # multiplatform clear
         os.system('cls' if os.name == 'nt' else 'clear')
 
         print(dungeon)
         print(dungeon.message)
         action = input(f"Select an action {hero_name}: (L)EFT, (R)IGHT, (D)OWN, (U)P, (A)TTACK, (Q)UIT: ")
 
+        # end game
         if action == "Q":
 
             while True:
 
+                # save or not
                 action = input(f"Do you, {hero_name}, want to save a game?: (Y)es or (N)o? ")
 
+                # invalid input
                 if not (action == 'N' or action == 'Y'):
                     continue
 
+                # yes -> serialize object
                 if action == 'Y':
                     filename = hero_name + '_' + datetime.now().strftime('%Y%m%d%H%M%S') + '.dng'
                     with open(filename, "wb") as file:
                         pickle.dump((hero_name, dungeon), file)
-                    print("saved to ", filename)
+                    print("Game saved to ", filename)
 
                 print("Bye!")
                 exit(0)
