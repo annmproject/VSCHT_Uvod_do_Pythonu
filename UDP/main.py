@@ -88,7 +88,7 @@ if __name__ == "__main__":
                     filename = hero_name + '_' + datetime.now().strftime('%Y%m%d%H%M%S') + '.dng'
                     with open(filename, "wb") as file:
                         pickle.dump((hero_name, dungeon), file)
-                    print("Game saved to ", filename)
+                    print("Game saved to", filename)
 
                 print("Bye!")
                 exit(0)
