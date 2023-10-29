@@ -3,12 +3,14 @@ from copy import deepcopy
 from map_entities import Hero, Goblin
 import random
 
+
 class Dungeon(AbstractDungeon):
     def __init__(self, size: tuple, tunnel_number: int, hero_name: str):
         super().__init__(size)
         self.hero = Hero("@", hero_name, [1, 1], 5, 5, 1)
         self.tunnel_number = tunnel_number
-        self.starting_entities = ["goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin"]
+        self.starting_entities = ["goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin",
+                                  "goblin", "goblin", "goblin", "goblin"]
         self.entities = []
         self.empty_space = []
         self.message = ""
@@ -34,7 +36,7 @@ class Dungeon(AbstractDungeon):
                         self.empty_space.append(tuple([x, y]))
         self.place_entities(self.starting_entities)
         self.current_map = deepcopy(self.dungeon_map)
-        self.empty_space = list(map(list,set(self.empty_space)))
+        self.empty_space = list(map(list, set(self.empty_space)))
         self.current_map[self.hero.position[0]][self.hero.position[1]] = self.hero.map_identifier
 
     def hero_action(self, action):
@@ -50,7 +52,7 @@ class Dungeon(AbstractDungeon):
                         self.fight(entity)
                         fighting = True
             if not fighting:
-                self.message ="Your big sword is hitting air really hard!"
+                self.message = "Your big sword is hitting air really hard!"
 
         self.update_map(self.entities)
 
