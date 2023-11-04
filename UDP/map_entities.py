@@ -1,6 +1,7 @@
 from abstract_classes import Creature
 import random
 
+
 class Hero(Creature):
     object_type = "hero"
 
@@ -23,7 +24,9 @@ class Hero(Creature):
         self.level += 1
         self.max_hp += 5
 
+
 class Goblin(Creature):
+
     object_type = "monster"
 
     def __str__(self):

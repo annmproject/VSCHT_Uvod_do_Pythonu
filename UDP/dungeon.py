@@ -3,6 +3,11 @@ from copy import deepcopy
 from map_entities import Hero, Goblin
 import random
 
+# magic constants
+UP = 0
+DOWN = 1
+LEFT = 2
+RIGHT = 3
 
 class Dungeon(AbstractDungeon):
     def __init__(self, size: tuple, tunnel_number: int, hero_name: str):
@@ -25,25 +30,64 @@ class Dungeon(AbstractDungeon):
         return printable_map
 
     def create_dungeon(self):
-        for x in range(self.size[0]):
-            self.dungeon_map.append([])
-            for y in range(self.size[1]):
-                if x == 0 or x == self.size[0] - 1 or y == 0 or y == self.size[1] - 1:
-                    self.dungeon_map[x].append("▓")
-                else:
-                    self.dungeon_map[x].append(".")
-                    if (x, y) != (1, 1):
-                        self.empty_space.append(tuple([x, y]))
+        # init full map
+        self.dungeon_map = [['▓' for _ in range(self.size[1])] for _ in range(self.size[0])]
+        # position (1,1) must be empty
+        self.dungeon_map[1][1] = '.'
+        # fields in map
+        no_fields = (self.size[0] - 2) * (self.size[1] - 2)
+        # generate path from first positions until empty field is not at least 70 pct
+        curr_pos = (1, 1)
+        while int((sum(row.count('.') for row in self.dungeon_map) / no_fields) * 100) < 70:
+            # generate direction
+            direction = random.randint(0, 3)
+            # calculate max path length
+            max_path_length = 0
+            if direction == UP:
+                max_path_length = abs(1 - curr_pos[0])
+            elif direction == DOWN:
+                max_path_length = abs(self.size[0] - 2 - curr_pos[0])
+            elif direction == LEFT:
+                max_path_length = abs(1 - curr_pos[1])
+            elif direction == RIGHT:
+                max_path_length = abs(self.size[1] - 2 - curr_pos[1])
+            # generate path length
+            path_length = random.randint(0, max_path_length)
+            # write path in direction
+            for _ in range(path_length):
+                if direction == UP:
+                    curr_pos = (curr_pos[0] - 1, curr_pos[1])
+                elif direction == DOWN:
+                    curr_pos = (curr_pos[0] + 1, curr_pos[1])
+                elif direction == LEFT:
+                    curr_pos = (curr_pos[0], curr_pos[1] - 1)
+                elif direction == RIGHT:
+                    curr_pos = (curr_pos[0], curr_pos[1] + 1)
+                self.dungeon_map[curr_pos[0]][curr_pos[1]] = '.'
+                if (curr_pos[0], curr_pos[1]) != (1, 1):
+                    self.empty_space.append(curr_pos)
+        # place entities
         self.place_entities(self.starting_entities)
+        # deepcopy of dungeon map
         self.current_map = deepcopy(self.dungeon_map)
+        # unique list of empty spaces
         self.empty_space = list(map(list, set(self.empty_space)))
+        # write hero into map
         self.current_map[self.hero.position[0]][self.hero.position[1]] = self.hero.map_identifier
 
     def hero_action(self, action):
         if action == "R":
-            # if self.hero.position[1] + 1 < self.size[1] - 1:
             if self.dungeon_map[self.hero.position[0]][self.hero.position[1] + 1] != "▓":
                 self.hero.position[1] += 1
+        elif action == "L":
+            if self.dungeon_map[self.hero.position[0]][self.hero.position[1] - 1] != "▓":
+                self.hero.position[1] -= 1
+        elif action == "U":
+            if self.dungeon_map[self.hero.position[0] - 1][self.hero.position[1]] != "▓":
+                self.hero.position[0] -= 1
+        elif action == "D":
+            if self.dungeon_map[self.hero.position[0] + 1][self.hero.position[1]] != "▓":
+                self.hero.position[0] += 1
         elif action == "A":
             fighting = False
             for entity in self.entities:
